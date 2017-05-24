@@ -1,5 +1,5 @@
-var player = {posX:100,posY:100,sizeX:90,sizeY:80,
-  speedX:0,speedY:0,friction:0.5,direction:"right",
+var player = {name:"player",posX:480,posY:400,sizeX:90,sizeY:80,
+  speedX:0,speedY:0,friction:0.5,direction:"right",depth:5,
 
   draw: function() {
     if(player.direction === "right") {
