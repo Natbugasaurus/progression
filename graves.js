@@ -46,7 +46,9 @@ function graveInteraction() {
     if (keyIsDown(70)) {
       displayText("Bork!","white",40,200,220);
       displayText("*respectfully*","white",20,165,240);
-      timeLeftInCountDown = 5 * 60;
+      if (timeLeftInCountDown === undefined) {
+        timeLeftInCountDown = 5 * 60;
+      }
     }
   }
 }

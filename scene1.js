@@ -1,6 +1,9 @@
 activeObjects = [];
 
 function drawScene1() {
+  if (!backgroundMusic.isPlaying()) {
+    backgroundMusic.play();
+  }
   background("black");
   image(scene1BG,0,0);
   for (i=0;i<activeObjects.length;i++) {
@@ -13,7 +16,9 @@ function drawScene1() {
   for (i=0;i<smallGraves.length;i++) {
     drawGraves(smallGraves[i]);
   }
-  runTimer();
+  if (runTimer()) {
+    drawCurrentScene = drawScene2;
+  }
 }
 
 function sortActiveObjects() {

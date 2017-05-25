@@ -9,6 +9,7 @@ function preload() {
   frontGravesIMG = loadImage("assets/gravesFront.png");
   backGravesIMG = loadImage("assets/gravesBack.png");
   slkscr = loadFont("assets/slkscr.ttf");
+  backgroundMusic = loadSound("assets/Classic Horror 3.mp3");
 }
 
 function setup() {
