@@ -1,6 +1,7 @@
 activeObjects = [];
 
 function drawScene1() {
+  activeObjects = [player,frontGraves,backGraves];
   if (!backgroundMusic.isPlaying()) {
     backgroundMusic.play();
   }
@@ -12,10 +13,10 @@ function drawScene1() {
   player.movement();
   handleCollisions();
   graveInteraction();
-  sortActiveObjects();
   for (i=0;i<smallGraves.length;i++) {
     drawGraves(smallGraves[i]);
   }
+  sortActiveObjects();
   if (runTimer()) {
     drawCurrentScene = drawScene2;
   }

@@ -1,14 +1,30 @@
 var playerBounce = false;
+var playerHit = false;
 
 function handleCollisions() {
-  if (doesPlayerCollide(bigGrave)) {
-    playerBounce = true;
-  }
-
-  for (i=0;i<smallGraves.length;i++) {
-    if (doesPlayerCollide(smallGraves[i])) {
+  if (drawCurrentScene === drawScene1) {
+    if (doesPlayerCollide(bigGrave)) {
       playerBounce = true;
     }
+
+    for (i=0;i<smallGraves.length;i++) {
+      if (doesPlayerCollide(smallGraves[i])) {
+        playerBounce = true;
+      }
+    }
+  }
+
+  for (i=0;i<bones.length;i++) {
+    if (doesPlayerCollide(bones[i])) {
+      playerHit = true;
+      bones.splice(i,1);
+    }
+  }
+
+  if (doesPlayerCollide(enemy)) {
+    enemy.health -= 5;
+    displayText("Bork Bork","white",20,player.posX-100,player.posY-20);
+    playerBounce = true;
   }
 
   resolveCollisions();
@@ -19,6 +35,10 @@ function resolveCollisions() {
     player.speedX = player.speedX * -1;
     player.speedY = player.speedY * -1;
     playerBounce = false;
+  }
+
+  if (playerHit === true) {
+    player.posX -= 5;
   }
 }
 

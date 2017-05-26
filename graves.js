@@ -47,7 +47,7 @@ function graveInteraction() {
       displayText("Bork!","white",40,200,220);
       displayText("*respectfully*","white",20,165,240);
       if (timeLeftInCountDown === undefined) {
-        timeLeftInCountDown = 5 * 60;
+        timeLeftInCountDown = 3 * 60;
       }
     }
   }

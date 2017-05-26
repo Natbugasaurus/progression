@@ -5,4 +5,5 @@ function displayText(words, colour, size, x, y) {
   textSize(size);
   textFont(slkscr);
   text(words, x, y);
+  noStroke();
 }

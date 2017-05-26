@@ -13,6 +13,7 @@ function preload() {
 }
 
 function setup() {
+  noStroke();
   createCanvas(960, 540);
   drawCurrentScene = drawScene1;
   activeObjects.push(player);
@@ -26,5 +27,5 @@ function draw() {
 }
 
 function mousePressed() {
-  print("MouseX: "+mouseX+" MouseY: "+mouseY);
+  //print("MouseX: "+mouseX+" MouseY: "+mouseY);
 }
