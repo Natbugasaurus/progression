@@ -45,10 +45,21 @@ function resolveCollisions() {
 //Function for checking if player collides with objects
 //Adapted from Nico's Rectangle Collision code
 function doesPlayerCollide(object) {
+  //rect(player.posX-(player.sizeX/2),(player.posY+(player.sizeY/2)),player.sizeX,(player.sizeY/2));
+  if (drawCurrentScene === drawScene1) {
+    return (
+      (player.posX - (player.sizeX/2) < object.posX + object.sizeX) &&
+      (player.posX + (player.sizeX/2) > object.posX) &&
+      ((player.posY + (player.sizeY/1.2)) < object.posY + object.sizeY) &&
+      (player.sizeY + player.posY > object.posY)
+    );
+  }
+  else {
     return (
       (player.posX - (player.sizeX/2) < object.posX + object.sizeX) &&
       (player.posX + (player.sizeX/2) > object.posX) &&
       (player.posY < object.posY + object.sizeY) &&
       (player.sizeY + player.posY > object.posY)
     );
+  }
 }

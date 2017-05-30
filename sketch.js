@@ -27,5 +27,5 @@ function draw() {
 }
 
 function mousePressed() {
-  //print("MouseX: "+mouseX+" MouseY: "+mouseY);
+  print("MouseX: "+mouseX+" MouseY: "+mouseY);
 }
