@@ -19,7 +19,7 @@ function drawScene1() {
     drawCurrentScene = drawScene2;
   }
 
-  while (timeLeftInCountDown !== undefined) {
+  if (timeLeftInCountDown !== undefined) {
 
   }
 }
