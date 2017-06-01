@@ -1,4 +1,4 @@
-var player = {name:"player",posX:480,posY:400,sizeX:90,sizeY:80,
+var player = {name:"player",posX:340,posY:440,sizeX:90,sizeY:80,
   speedX:0,speedY:0,friction:0.5,direction:"right",depth:5,
 
   draw: function() {
@@ -31,12 +31,12 @@ var player = {name:"player",posX:480,posY:400,sizeX:90,sizeY:80,
     player.speedY = player.speedY * player.friction;
 
     if (drawCurrentScene === drawScene1) {
-      if (player.posX < 0) {
-        player.posX = 0;
+      if (player.posX < 0 + (player.sizeX/2)) {
+        player.posX = 0 + (player.sizeX/2);
         player.speedX = player.speedX * -1;
       }
-      if (player.posX > width - player.sizeX) {
-        player.posX = width - player.sizeX;
+      if (player.posX > width - (player.sizeX/2)) {
+        player.posX = width - (player.sizeX/2);
         player.speedX = player.speedX * - 1;
       }
       if (player.posY < 215) {
@@ -72,41 +72,37 @@ var player = {name:"player",posX:480,posY:400,sizeX:90,sizeY:80,
 
   movement: function() {
     if (drawCurrentScene === drawScene1) {
-      if (keyIsPressed) {
-        switch (keyCode) {
-          case 37:
-            player.speedX = -3;
-            player.direction = "left";
-            break;
-          case 39:
-            player.speedX = 3;
-            player.direction = "right";
-            break;
-          case 38:
-            player.speedY = -3;
-            break;
-          case 40:
-            player.speedY = 3;
-            break;
-        }
+      if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
+        player.speedY = -3;
+      }
+      if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+        player.speedY = 3;
+      }
+      if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+        player.speedX = 3;
+        player.direction = "right";
+      }
+      if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
+        player.speedX = -3;
+        player.direction = "left";
       }
     }
 
     if (drawCurrentScene === drawScene2) {
       player.friction = 0.8;
-      if (keyIsPressed && !playerHit) {
-        if (keyCode === 38) {
-          player.speedY = -5;
+      if (!playerHit && !playerHitBoss) {
+        if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
+          player.speedY -= 2;
         }
-        if (keyCode === 40) {
-          player.speedY = 5;
+        if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+          player.speedY += 2;
         }
-        if (keyCode === 39) {
-          player.speedX = 5;
+        if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+          player.speedX += 2;
           player.direction = "right";
         }
-        if (keyCode === 37) {
-          player.speedX = -3;
+        if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
+          player.speedX -= 2;
           player.direction = "left";
         }
       }

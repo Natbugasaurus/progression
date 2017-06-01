@@ -4,15 +4,15 @@ smallGravePositionsBack = [48,225,600,777];
 smallGravePositionsFront = [137,313,689,865];
 
 
-frontGraves = {name:"frontGraves",depth:4,
+frontGraves = {name:"frontGraves",depth:4,posX:0,posY:0,
   draw: function() {
-    image(frontGravesIMG,0,0);
+    image(frontGravesIMG,frontGraves.posX,frontGraves.posY);
   }
 };
 
-backGraves = {name:"backGraves",depth:2,
+backGraves = {name:"backGraves",depth:2,posX:0,posY:0,
   draw: function() {
-    image(backGravesIMG,0,0);
+    image(backGravesIMG,backGraves.posX,backGraves.posY);
   }
 };
 
@@ -37,5 +37,10 @@ function graveInteraction() {
         timeLeftInCountDown = 3 * 60;
       }
     }
+  }
+  if (player.posX > 313 && player.posX < 370 && player.posY > 410) {
+    print("Yes!");
+    displayText("Use WASD to do","white",20,50,220);
+    displayText("a heckin movement","white",20,50,240);
   }
 }

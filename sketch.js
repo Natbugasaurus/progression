@@ -12,12 +12,16 @@ function preload() {
   bossIMG = loadImage("assets/boss.png");
   slkscr = loadFont("assets/slkscr.ttf");
   backgroundMusic = loadSound("assets/Classic Horror 3.mp3");
+  bossMusic = loadSound("assets/bonetrousle.mp3");
+  rumbleSound = loadSound("assets/earthquake.mp3");
+  bork = loadSound("assets/bork.mp3");
+  attack = loadSound("assets/attack.mp3");
 }
 
 function setup() {
   noStroke();
   createCanvas(960, 540);
-  drawCurrentScene = drawScene2;
+  drawCurrentScene = drawScene1;
   activeObjects.push(player);
   activeObjects.push(frontGraves);
   activeObjects.push(backGraves);

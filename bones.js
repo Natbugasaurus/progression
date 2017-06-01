@@ -1,10 +1,11 @@
 var bones = [];
 var speeds = [-6,-5,-4,4,5,6];
+var boneCount = 3;
 
 function makeBones() {
-  if (bones.length < 6) {
+  if (bones.length < boneCount) {
     bones.push({
-      posX:random(960,1040),posY:((enemy.posY+(enemy.sizeY/2))+random(-100,100)),sizeX:60,sizeY:25,speedX:random(4,8)
+      posX:random(960,1040),posY:((enemy.posY+(enemy.sizeY/2))+random(-200,200)),sizeX:60,sizeY:25,speedX:random(4,8)
     });
   }
 }
@@ -16,5 +17,5 @@ function drawBones(bone) {
     bones.splice(i,1);
   }
 
-  //bone.posX -= bone.speedX;
+  bone.posX -= bone.speedX;
 }

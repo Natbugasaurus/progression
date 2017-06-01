@@ -13,3 +13,13 @@ function runTimer() {
     return false;
   }
 }
+
+function runTimer2() {
+  timerStart = frameCount;
+  if (frameCount < (timerStart+(2*60))) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}

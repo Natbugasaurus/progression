@@ -1,12 +1,14 @@
 activeObjects = [];
+var bgX = 0, bgY = 0;
 
 function drawScene1() {
+  //print("Player X: "+ player.posX+" & Player Y: " + player.posY);
   activeObjects = [player,frontGraves,backGraves];
   if (!backgroundMusic.isPlaying()) {
     backgroundMusic.play();
   }
   background("black");
-  image(scene1BG,0,0);
+  image(scene1BG,bgX,bgY);
   sortActiveObjects();
   for (i=0;i<activeObjects.length;i++) {
     activeObjects[i].draw();
@@ -20,12 +22,21 @@ function drawScene1() {
   }
 
   if (timeLeftInCountDown !== undefined) {
-
+    if (!rumbleSound.isPlaying()) {
+      rumbleSound.play();
+    }
+    bgX = bgX+(sin(frameCount)*2);
+    bgY = bgY-(sin(frameCount)*2);
+    frontGraves.posX += (sin(frameCount)*2);
+    frontGraves.posY -= (sin(frameCount)*2);
+    backGraves.posX += (sin(frameCount)*2);
+    backGraves.posY -= (sin(frameCount)*2);
+    player.posX += (sin(frameCount)*2);
+    player.posY -= (sin(frameCount)*2);
   }
 }
 
 function sortActiveObjects() {
-  //print(player.depth);
   if ((player.posY + player.sizeY) > 470) {
     player.depth = 5;
   }

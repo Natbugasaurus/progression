@@ -1,6 +1,7 @@
 var playerBounce = false;
 var playerHit = false;
 var playerHitBoss = false;
+var playerStop = false;
 
 function handleCollisions() {
   if (drawCurrentScene === drawScene1) {
@@ -19,6 +20,7 @@ function handleCollisions() {
     if (doesPlayerCollide(bones[i])) {
       playerHit = true;
       bones.splice(i,1);
+      bork.play();
     }
   }
 
@@ -40,11 +42,13 @@ function resolveCollisions() {
     player.posX -= 5;
   }
 
-  if (playerHitBoss === true) {
-    enemy.health -= 5;
+  if (playerHitBoss) {
     displayText("Bork Bork","white",20,player.posX-100,player.posY-20);
-    player.speedX = player.speedX * - 1.5;
     playerHitBoss = false;
+    attack.play();
+    bones = [];
+    player.speedX = -75;
+    enemy.health -= 25;
   }
 }
 
