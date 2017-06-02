@@ -33,11 +33,31 @@ var enemy = {name:"enemy",posX:810,sizeX:150,sizeY:192,health:100,
       fill("red");
       boneCount = 10;
     }
+
     if (enemy.health > 0) {
       rect(250,5,enemy.health*4,10);
     }
     else {
-      drawCurrentScene = drawScene3;
+      if (timeLeftInCountDown === undefined) {
+        timeLeftInCountDown = 5*60;
+      }
+      else {
+        if (runTimer()) {
+          drawCurrentScene = drawScene3;
+        }
+        else {
+          bones = [];
+          boneCount = 0;
+          enemy.posX += (sin(frameCount)*4);
+          enemy.posY = height/2;
+          if (bossMusic.isPlaying()) {
+            bossMusic.pause();
+          }
+          if (!explosion.isPlaying()) {
+            explosion.play();
+          }
+        }
+      }
     }
   }
 };

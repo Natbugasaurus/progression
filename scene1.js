@@ -25,6 +25,8 @@ function drawScene1() {
     if (!rumbleSound.isPlaying()) {
       rumbleSound.play();
     }
+    displayText("Bork!","white",40,200,220);
+    displayText("*respectfully*","white",20,165,240);
     myCamera.x += (sin(frameCount)*2);
     myCamera.y -= (sin(frameCount)*2);
     myCamera.zoom += 0.01;

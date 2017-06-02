@@ -16,6 +16,7 @@ function preload() {
   rumbleSound = loadSound("assets/earthquake.mp3");
   bork = loadSound("assets/bork.mp3");
   attack = loadSound("assets/attack.mp3");
+  explosion = loadSound("assets/explosion.mp3");
 }
 
 function setup() {

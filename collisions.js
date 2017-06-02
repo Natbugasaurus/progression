@@ -28,8 +28,6 @@ function handleCollisions() {
 
   if (doesPlayerCollide(enemy)) {
     playerHitBoss = true;
-    myCamera.x += (sin(frameCount)*6);
-    myCamera.y -= (sin(frameCount)*6);
   }
 
   resolveCollisions();
@@ -43,11 +41,13 @@ function resolveCollisions() {
   }
 
   if (playerHit === true) {
-    player.posX -= 5;
+    player.posX -= 10;
   }
 
   if (playerHitBoss) {
     displayText("Bork Bork","white",20,player.posX-100,player.posY-20);
+    myCamera.x += (sin(frameCount)*6);
+    myCamera.y -= (sin(frameCount)*6);
     playerHitBoss = false;
     attack.play();
     bones = [];

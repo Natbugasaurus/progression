@@ -31,10 +31,9 @@ function graveInteraction() {
   if ((dist(player.posX,player.posY,bigGrave.triggerPointX,bigGrave.triggerPointY)) < 80) {
     displayText("Press F to pay respects","white",25,570,240);
     if (keyIsDown(70)) {
-      displayText("Bork!","white",40,200,220);
-      displayText("*respectfully*","white",20,165,240);
       if (timeLeftInCountDown === undefined) {
         timeLeftInCountDown = 3 * 60;
+        bork.play();
       }
     }
   }
