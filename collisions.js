@@ -21,11 +21,15 @@ function handleCollisions() {
       playerHit = true;
       bones.splice(i,1);
       bork.play();
+      myCamera.x += (sin(frameCount)*6);
+      myCamera.y -= (sin(frameCount)*6);
     }
   }
 
   if (doesPlayerCollide(enemy)) {
     playerHitBoss = true;
+    myCamera.x += (sin(frameCount)*6);
+    myCamera.y -= (sin(frameCount)*6);
   }
 
   resolveCollisions();

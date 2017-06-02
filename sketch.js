@@ -1,6 +1,6 @@
 var drawCurrentScenel;
 var pug, pugLeft, scene1BG, backGravesIMG, frontGravesIMG, bonesIMG, bossIMG;
-var silkScreen;
+var silkScreen, myCamera;
 
 function preload() {
   pug = loadImage("assets/Pug.png");
@@ -25,11 +25,20 @@ function setup() {
   activeObjects.push(player);
   activeObjects.push(frontGraves);
   activeObjects.push(backGraves);
+  myCamera = {x:0,y:0,zoom:1};
+  myCamera.x = width/2;
+  myCamera.y = height/2;
+
   makeGraves();
 }
 
 function draw() {
+  push();
+  translate(width/2, height/2);
+  scale(myCamera.zoom, myCamera.zoom);
+  translate(-myCamera.x, -myCamera.y);
   drawCurrentScene();
+  pop();
 }
 
 function mousePressed() {

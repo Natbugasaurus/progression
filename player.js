@@ -92,17 +92,17 @@ var player = {name:"player",posX:340,posY:440,sizeX:90,sizeY:80,
       player.friction = 0.8;
       if (!playerHit && !playerHitBoss) {
         if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
-          player.speedY -= 2;
+          player.speedY -= 1.5;
         }
         if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
-          player.speedY += 2;
+          player.speedY += 1.5;
         }
         if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
-          player.speedX += 2;
+          player.speedX += 1.5;
           player.direction = "right";
         }
         if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
-          player.speedX -= 2;
+          player.speedX -= 1.5;
           player.direction = "left";
         }
       }

@@ -25,14 +25,9 @@ function drawScene1() {
     if (!rumbleSound.isPlaying()) {
       rumbleSound.play();
     }
-    bgX = bgX+(sin(frameCount)*2);
-    bgY = bgY-(sin(frameCount)*2);
-    frontGraves.posX += (sin(frameCount)*2);
-    frontGraves.posY -= (sin(frameCount)*2);
-    backGraves.posX += (sin(frameCount)*2);
-    backGraves.posY -= (sin(frameCount)*2);
-    player.posX += (sin(frameCount)*2);
-    player.posY -= (sin(frameCount)*2);
+    myCamera.x += (sin(frameCount)*2);
+    myCamera.y -= (sin(frameCount)*2);
+    myCamera.zoom += 0.01;
   }
 }
 

@@ -38,9 +38,35 @@ function graveInteraction() {
       }
     }
   }
+  if (player.posX > 137 && player.posX < 190 && player.posY > 410) {
+    displayText("Here lies","white",20,50,220);
+    displayText("Dhan son, Damn son","white",20,50,240);
+  }
   if (player.posX > 313 && player.posX < 370 && player.posY > 410) {
-    print("Yes!");
     displayText("Use WASD to do","white",20,50,220);
     displayText("a heckin movement","white",20,50,240);
+  }
+  if (player.posX > 689 && player.posX < 742 && player.posY > 410) {
+    displayText("Here lies Gabe","white",20,50,220);
+    displayText("Bork In Peace smol one","white",20,50,240);
+  }
+  if (player.posX > 865 && player.posX < 918 && player.posY > 410) {
+    displayText("Here lies Vicchan","white",20,50,220);
+    displayText("Born to make history","white",20,50,240);
+  }
+  if (player.posX > 48 && player.posX < 101 && player.posY > 305 && player.posY < 350) {
+    displayText("Here lies Nat","white",20,50,220);
+    displayText("AKA Stress Boi","white",20,50,240);
+  }
+  if (player.posX > 255 && player.posX < 303 && player.posY > 305 && player.posY < 350) {
+    displayText("Here lies Dumbledore","white",20,50,220);
+    displayText("Killed by Snape","white",20,50,240);
+  }
+  if (player.posX > 600 && player.posX < 653 && player.posY > 305 && player.posY < 350) {
+    displayText("You're standing on me!","white",20,50,220);
+  }
+  if (player.posX > 777 && player.posX < 830 && player.posY > 305 && player.posY < 350) {
+    displayText("Here lies Justin","white",20,50,220);
+    displayText("Gone too soon","white",20,50,240);
   }
 }

@@ -1,6 +1,9 @@
 var scrollingText = 200;
 
 function drawScene2() {
+  myCamera.x = width/2;
+  myCamera.y = height/2;
+  myCamera.zoom = 1;
   rumbleSound.pause();
   backgroundMusic.pause();
   if (!bossMusic.isPlaying()) {
