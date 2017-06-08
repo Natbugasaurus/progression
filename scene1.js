@@ -2,25 +2,31 @@ activeObjects = [];
 var bgX = 0, bgY = 0;
 
 function drawScene1() {
-  //print("Player X: "+ player.posX+" & Player Y: " + player.posY);
+  //Active Objects so graves and player drawing can be sorted for depth
   activeObjects = [player,frontGraves,backGraves];
+
   if (!backgroundMusic.isPlaying()) {
     backgroundMusic.play();
   }
+
   background("black");
   image(scene1BG,bgX,bgY);
+
   sortActiveObjects();
   for (i=0;i<activeObjects.length;i++) {
     activeObjects[i].draw();
   }
+
   player.movement();
   handleCollisions();
   graveInteraction();
 
+  //Checks if timer is complete and moves to next scene
   if (runTimer()) {
     drawCurrentScene = drawScene2;
   }
 
+  //If timer is running, play transition animation and sound
   if (timeLeftInCountDown !== undefined) {
     if (!rumbleSound.isPlaying()) {
       rumbleSound.play();

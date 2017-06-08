@@ -3,7 +3,7 @@ smallGraves = [];
 smallGravePositionsBack = [48,225,600,777];
 smallGravePositionsFront = [137,313,689,865];
 
-
+//Front and back grave images
 frontGraves = {name:"frontGraves",depth:4,posX:0,posY:0,
   draw: function() {
     image(frontGravesIMG,frontGraves.posX,frontGraves.posY);
@@ -16,8 +16,8 @@ backGraves = {name:"backGraves",depth:2,posX:0,posY:0,
   }
 };
 
+//For small grave collisions
 function makeGraves() {
-  //rect(bigGrave.posX,bigGrave.posY,bigGrave.sizeX,bigGrave.sizeY);
   for (i=0;i<smallGravePositionsBack.length;i++) {
     smallGraves.push({posX:(smallGravePositionsBack[i]),posY:360,sizeX:53,sizeY:15});
   }
@@ -27,7 +27,7 @@ function makeGraves() {
 }
 
 function graveInteraction() {
-  //rect(bigGrave.posX,bigGrave.posY,bigGrave.sizeX,bigGrave.sizeY);
+  //Large grave text and button detection
   if ((dist(player.posX,player.posY,bigGrave.triggerPointX,bigGrave.triggerPointY)) < 80) {
     displayText("Press F to pay respects","white",25,570,240);
     if (keyIsDown(70)) {
@@ -37,6 +37,8 @@ function graveInteraction() {
       }
     }
   }
+
+  //Small graves text
   if (player.posX > 137 && player.posX < 190 && player.posY > 410) {
     displayText("Here lies","white",20,50,220);
     displayText("Dhan son, Damn son","white",20,50,240);

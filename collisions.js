@@ -46,20 +46,28 @@ function resolveCollisions() {
 
   if (playerHitBoss) {
     displayText("Bork Bork","white",20,player.posX-100,player.posY-20);
+
+    //Camera shudder
     myCamera.x += (sin(frameCount)*6);
     myCamera.y -= (sin(frameCount)*6);
-    playerHitBoss = false;
+
     attack.play();
+
     bones = [];
+
+    //Player knockback
     player.speedX = -75;
+
     enemy.health -= 25;
+
+    playerHitBoss = false;
   }
 }
 
 //Function for checking if player collides with objects
 //Adapted from Nico's Rectangle Collision code
 function doesPlayerCollide(object) {
-  //rect(player.posX-(player.sizeX/2),(player.posY+(player.sizeY/2)),player.sizeX,(player.sizeY/2));
+  //Slightly different collisions for the graveyard scene and the boss scene to account for the player facing different directions in the former
   if (drawCurrentScene === drawScene1) {
     return (
       (player.posX - (player.sizeX/2) < object.posX + object.sizeX) &&
